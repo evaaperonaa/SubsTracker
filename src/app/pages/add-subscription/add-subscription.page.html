@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar class="custom-toolbar">
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Añadir suscripción</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-item>
+    <ion-input placeholder="Nombre" [(ngModel)]="name"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input type="number" placeholder="Precio" [(ngModel)]="price"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-select [(ngModel)]="billingCycle">
+      <ion-select-option value="monthly">Monthly</ion-select-option>
+      <ion-select-option value="yearly">Yearly</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+
+  <ion-button expand="block" (click)="addSubscription()">
+    Guardar
+  </ion-button>
+
+</ion-content>

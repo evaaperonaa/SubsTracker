@@ -1,0 +1,40 @@
+ion-content {
+  --background: #f7f8fa;
+  --padding-top: 20px;
+}
+
+/* 📦 IOS INPUT CARD */
+ion-item {
+  --background: transparent;
+  --border-color: transparent;
+  border-bottom: 1px solid #e5e5ea;
+  margin-bottom: 16px;
+}
+
+/* 🧠 INPUT TEXT CLEAN */
+ion-input,
+ion-select {
+  --color: #1c1c1e;
+  font-size: 15px;
+}
+
+/* 🔤 LABEL IOS */
+ion-label {
+  color: #8e8e93 !important;
+  font-size: 13px;
+}
+
+/* 💾 BUTTON IOS STYLE */
+ion-button {
+  margin-top: 24px;
+  --border-radius: 16px;
+  --background: linear-gradient(135deg, #4a90e2, #6bb6ff);
+  color: white;
+  font-weight: 600;
+}
+
+ion-toolbar {
+  --background: linear-gradient(135deg, #4a90e2, #6bb6ff);
+  --color: #ffffff;
+}
+

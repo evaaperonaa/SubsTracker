@@ -1,0 +1,52 @@
+ion-content {
+  --background: #f7f8fa;
+  --padding-top: 20px;
+}
+
+/* 📦 CARD FLOATING */
+ion-card {
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* 🧠 TITLES IOS */
+ion-card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1c1c1e;
+}
+
+/* 📦 FORM FIELDS CLEAN */
+ion-item {
+  --background: transparent;
+  border-bottom: 1px solid #e5e5ea;
+  margin-bottom: 16px;
+}
+
+/* 🧠 INPUTS */
+ion-input,
+ion-select {
+  --color: #1c1c1e;
+}
+
+/* 🔤 LABELS */
+ion-label {
+  color: #8e8e93 !important;
+}
+
+/* 💾 BUTTON IOS BLUE */
+ion-button {
+  margin-top: 20px;
+  --border-radius: 16px;
+  --background: linear-gradient(135deg, #4a90e2, #6bb6ff);
+  color: white;
+  font-weight: 600;
+}
+
+/* 🔝 HEADER CLEAN IOS */
+ion-toolbar {
+  --background: linear-gradient(135deg, #4a90e2, #6bb6ff);
+  --color: #ffffff;
+}
+

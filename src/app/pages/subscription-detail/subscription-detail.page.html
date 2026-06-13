@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar class="custom-toolbar">
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Detalle</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-card *ngIf="subscription">
+
+    <ion-card-content>
+
+      <ion-item>
+        <ion-input [(ngModel)]="subscription.name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="number" [(ngModel)]="subscription.price"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-select [(ngModel)]="subscription.billingCycle">
+          <ion-select-option value="monthly">Monthly</ion-select-option>
+          <ion-select-option value="yearly">Yearly</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-button expand="block" (click)="updateSubscription()">
+        Guardar cambios
+      </ion-button>
+
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>

@@ -1,20 +1,94 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="ion-padding">
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- 📊 DASHBOARD -->
+  <ion-card class="dashboard-card">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-card-header>
+      <ion-card-title>📊 Resumen</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>💰 Mensual: {{ totalMonthly | number:'1.2-2' }} €</p>
+      <p>📆 Anual: {{ totalYearly | number:'1.2-2' }} €</p>
+
+      <p *ngIf="mostExpensive">
+        🔥 Más cara: {{ mostExpensive.name }} ({{ mostExpensive.price }} €)
+      </p>
+    </ion-card-content>
+
+  </ion-card>
+
+  <!-- 📅 ALERTAS -->
+  <ion-card class="alerts-card">
+
+    <ion-card-header>
+      <ion-card-title>📅 Próximas renovaciones</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <div *ngFor="let sub of expiringSoon">
+
+        <p>
+          <strong>{{ sub.name }}</strong>
+          —
+          <span
+            [ngClass]="{
+              'alert-red': sub.daysLeft <= 3,
+              'alert-orange': sub.daysLeft > 3 && sub.daysLeft <= 7,
+              'alert-green': sub.daysLeft > 7
+            }">
+            {{ sub.daysLeft }} días
+          </span>
+        </p>
+
+      </div>
+
+    </ion-card-content>
+
+  </ion-card>
+
+  <!-- ➕ BOTÓN -->
+  <ion-button expand="block" (click)="goAdd()">
+    ➕ Añadir suscripción
+  </ion-button>
+
+  <!-- 🧾 LISTA -->
+  <ion-card class="sub-card"
+            *ngFor="let sub of subscriptions"
+            (click)="editSub(sub.id)">
+
+    <ion-card-header>
+      <ion-card-title>
+        {{ sub.name }}
+      </ion-card-title>
+
+      <ion-card-subtitle>
+        {{ sub.billingCycle }}
+      </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <p>💰 {{ sub.price }} €</p>
+      <p>📅 {{ sub.renewalDate | date:'dd/MM/yyyy' }}</p>
+
+      <div class="actions">
+
+        <ion-button fill="clear" color="primary"
+          (click)="editSub(sub.id); $event.stopPropagation()">
+          ✏️ Editar
+        </ion-button>
+
+        <ion-button fill="clear" color="danger"
+          (click)="deleteSub($event, sub.id)">
+          🗑 Borrar
+        </ion-button>
+
+      </div>
+
+    </ion-card-content>
+
+  </ion-card>
+
 </ion-content>
