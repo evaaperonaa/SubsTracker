@@ -1,0 +1,7 @@
+{
+  "name": "SubsTracker",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
