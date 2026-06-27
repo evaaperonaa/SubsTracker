@@ -73,4 +73,19 @@ export class SubscriptionDetailPage {
 
     this.router.navigate(['/']);
   }
+
+  getIcon(name: string): string {
+    const service = name.toLowerCase();
+
+    if (service.includes('netflix')) return '🎬';
+    if (service.includes('spotify')) return '🎵';
+    if (service.includes('disney')) return '🏰';
+    if (service.includes('prime')) return '📺';
+    if (service.includes('youtube')) return '▶️';
+    if (service.includes('chatgpt')) return '🤖';
+    if (service.includes('adobe')) return '🎨';
+    if (service.includes('xbox')) return '🎮';
+
+    return '📦';
+  }
 }

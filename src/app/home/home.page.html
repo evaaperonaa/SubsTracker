@@ -1,24 +1,41 @@
 <ion-content class="ion-padding">
+  <ion-card>
+
+    <ion-item lines="none">
+
+      <ion-label>
+        {{ darkMode ? '🌙 Modo oscuro' : '☀️ Modo claro' }}
+      </ion-label>
+
+      <ion-toggle slot="end" [checked]="darkMode" (ionChange)="toggleDarkMode()">
+      </ion-toggle>
+
+    </ion-item>
+
+  </ion-card>
 
   <!-- 📊 DASHBOARD -->
   <ion-card class="dashboard-card">
 
-    <ion-card-header>
-      <ion-card-title>📊 Resumen</ion-card-title>
-    </ion-card-header>
-
     <ion-card-content>
-      <p>💰 Mensual: {{ totalMonthly | number:'1.2-2' }} €</p>
-      <p>📆 Anual: {{ totalYearly | number:'1.2-2' }} €</p>
+
+      <h1>{{ totalMonthly | number:'1.2-2' }} €</h1>
+
+      <p>Gasto mensual total</p>
+
+      <hr>
+
+      <p>📆 Gasto anual: {{ totalYearly | number:'1.2-2' }} €</p>
 
       <p *ngIf="mostExpensive">
         🔥 Más cara: {{ mostExpensive.name }} ({{ mostExpensive.price }} €)
       </p>
+
     </ion-card-content>
 
   </ion-card>
 
-  <!-- 📅 ALERTAS -->
+  <!-- 📅 RENOVACIONES -->
   <ion-card class="alerts-card">
 
     <ion-card-header>
@@ -30,15 +47,18 @@
       <div *ngFor="let sub of expiringSoon">
 
         <p>
-          <strong>{{ sub.name }}</strong>
+          <strong>{{ getIcon(sub.name) }} {{ sub.name }}</strong>
+
           —
-          <span
-            [ngClass]="{
+
+          <span [ngClass]="{
               'alert-red': sub.daysLeft <= 3,
               'alert-orange': sub.daysLeft > 3 && sub.daysLeft <= 7,
               'alert-green': sub.daysLeft > 7
             }">
+
             {{ sub.daysLeft }} días
+
           </span>
         </p>
 
@@ -48,41 +68,53 @@
 
   </ion-card>
 
-  <!-- ➕ BOTÓN -->
+  <!-- ➕ NUEVA SUSCRIPCIÓN -->
   <ion-button expand="block" (click)="goAdd()">
     ➕ Añadir suscripción
   </ion-button>
 
-  <!-- 🧾 LISTA -->
-  <ion-card class="sub-card"
-            *ngFor="let sub of subscriptions"
-            (click)="editSub(sub.id)">
+  <!-- 🧾 LISTADO -->
+  <ion-card class="sub-card" *ngFor="let sub of subscriptions" (click)="editSub(sub.id)">
 
     <ion-card-header>
+
       <ion-card-title>
-        {{ sub.name }}
+        {{ getIcon(sub.name) }} {{ sub.name }}
       </ion-card-title>
 
       <ion-card-subtitle>
-        {{ sub.billingCycle }}
+
+        {{
+        sub.billingCycle === 'monthly'
+        ? 'Mensual'
+        : 'Anual'
+        }}
+
       </ion-card-subtitle>
+
     </ion-card-header>
 
     <ion-card-content>
 
       <p>💰 {{ sub.price }} €</p>
-      <p>📅 {{ sub.renewalDate | date:'dd/MM/yyyy' }}</p>
+
+      <p>
+        📅 Renovación:
+        {{ sub.renewalDate | date:'dd/MM/yyyy' }}
+      </p>
 
       <div class="actions">
 
-        <ion-button fill="clear" color="primary"
-          (click)="editSub(sub.id); $event.stopPropagation()">
+        <ion-button fill="clear" color="primary" (click)="editSub(sub.id); $event.stopPropagation()">
+
           ✏️ Editar
+
         </ion-button>
 
-        <ion-button fill="clear" color="danger"
-          (click)="deleteSub($event, sub.id)">
+        <ion-button fill="clear" color="danger" (click)="deleteSub($event, sub.id)">
+
           🗑 Borrar
+
         </ion-button>
 
       </div>

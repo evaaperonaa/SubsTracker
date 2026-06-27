@@ -70,3 +70,18 @@ ion-button[expand="block"] {
 .alert-green {
   color: #34c759;
 }
+
+body.dark ion-card {
+  background: #1a1d23 !important;
+  color: white;
+}
+
+body.dark ion-item {
+  --background: #1a1d23;
+  --color: white;
+}
+
+body.dark ion-input,
+body.dark ion-select {
+  --color: white;
+}

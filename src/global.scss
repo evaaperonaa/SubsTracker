@@ -1,37 +1,105 @@
-/*
- * App Global CSS
- * ----------------------------------------------------------------------------
- * Put style rules here that you want to apply globally. These styles are for
- * the entire app and not just one component. Additionally, this file can be
- * used as an entry point to import other CSS/Sass files to be included in the
- * output CSS.
- * For more information on global stylesheets, visit the documentation:
- * https://ionicframework.com/docs/layout/global-stylesheets
- */
+ion-app {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
 
-/* Core CSS required for Ionic components to work properly */
-@import "@ionic/angular/css/core.css";
+/* =========================
+   🌙 DARK MODE BASE
+========================= */
+body.dark {
+  --ion-text-color: #e5e7eb;
+  --ion-text-color-rgb: 229, 231, 235;
 
-/* Basic CSS for apps built with Ionic */
-@import "@ionic/angular/css/normalize.css";
-@import "@ionic/angular/css/structure.css";
-@import "@ionic/angular/css/typography.css";
-@import "@ionic/angular/css/display.css";
+  --ion-background-color: #0f1115;
+  --ion-card-background: #1a1d23;
+  --ion-item-background: #1a1d23;
 
-/* Optional CSS utils that can be commented out */
-@import "@ionic/angular/css/padding.css";
-@import "@ionic/angular/css/float-elements.css";
-@import "@ionic/angular/css/text-alignment.css";
-@import "@ionic/angular/css/text-transformation.css";
-@import "@ionic/angular/css/flex-utils.css";
+  --ion-toolbar-background: #141821;
 
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
+  font-family: inherit;
+}
 
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
+/* Fondo global Ionic */
+body.dark ion-app,
+body.dark ion-content,
+body.dark ion-page {
+  --background: #0f1115 !important;
+  background: #0f1115 !important;
+}
+
+/* =========================
+   📦 COMPONENTES
+========================= */
+body.dark ion-card {
+  background: #1a1d23 !important;
+  color: #e5e7eb;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+body.dark ion-item {
+  --background: #1a1d23;
+  --color: #e5e7eb;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+body.dark ion-input,
+body.dark ion-select {
+  --color: #e5e7eb;
+}
+
+/* =========================
+   🔘 BOTONES
+========================= */
+body.dark ion-button {
+  --background: #2f6fed;
+  --color: white;
+}
+
+/* =========================
+   📊 DASHBOARD
+========================= */
+body.dark .dashboard-card {
+  background: linear-gradient(135deg, #1b2a41, #243b55);
+  color: white;
+}
+
+body.dark ion-card-title {
+  color: #f3f4f6;
+}
+
+body.dark ion-card-content p {
+  color: #d1d5db;
+}
+
+/* =========================
+   🔤 TEXTO GLOBAL (FIX REAL)
+========================= */
+body.dark ion-app,
+body.dark ion-content,
+body.dark ion-card,
+body.dark ion-item,
+body.dark ion-label,
+body.dark ion-input,
+body.dark ion-select,
+body.dark ion-title,
+body.dark p,
+body.dark h1,
+body.dark h2,
+body.dark h3 {
+  color: #e5e7eb !important;
+}
+
+/* =========================
+   ⚡ TRANSICIÓN GLOBAL OPTIMIZADA
+========================= */
+ion-app,
+ion-content,
+ion-card,
+ion-item,
+ion-toolbar {
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* suavidad profesional */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
