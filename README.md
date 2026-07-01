@@ -58,3 +58,7 @@ Estas son algunas de las funcionalidades que se añadirán en futuras versiones:
 ## 📌 Estado del proyecto
 
 Actualmente la aplicación se encuentra en fase de desarrollo, por lo que algunas funciones pueden cambiar o ampliarse en futuras actualizaciones.
+
+---
+
+***Built with ♥ and a touch of blue by [Evly](https://github.com/evaaperonaa)***
